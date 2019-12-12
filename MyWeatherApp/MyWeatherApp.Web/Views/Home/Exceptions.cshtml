@@ -1,0 +1,38 @@
+﻿@model IEnumerable<MyWeatherApp.Models.CustomException>
+@{
+    ViewData["Title"] = "Exceptions";
+}
+
+<h3>Exceptions</h3>
+
+<div class="row">
+
+    @foreach (var element in Model)
+    {
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">ID: @element.Id</h5>
+                    <p class="card-text">
+                        <a href="#" class="card-link text-danger">Message: </a>@element.ClientErrorMessage
+                    </p>
+                    <p class="card-text">
+                        <a href="#" class="card-link text-danger">Stack Trace: </a>@element.CustomStackTrace
+                    </p>
+                    <p class="card-text">
+                        <a href="#" class="card-link ">Inner Stack Trace: </a>@element.InnerStackTrace
+                    </p>
+                    <p class="card-text">
+                        <a href="#" class="card-link ">Inner Source: </a>@element.InnerSource
+                    </p>
+                    <p class="card-text">
+                        <a href="#" class="card-link ">InnerMessage: </a>@element.InnerMessage
+                    </p>
+                    <h6 class="card-subtitle mb-2 text-muted">
+                        <a href="#" class="card-link"> Date: @element.DateCreated </a>
+                    </h6>
+                </div>
+            </div>
+        </div>
+    }
+</div>

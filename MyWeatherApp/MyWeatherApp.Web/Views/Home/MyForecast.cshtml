@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MyWeatherApp.Models.MyWeather>
+@{
+    ViewData["Title"] = "MyForecast";
+}
+<style>
+    
+</style>
+<h1 class="display-3">Weather Forecast</h1>
+<form asp-controller="Home" asp-action="MyForecast" method="Get">
+    <h2>
+        City :
+        <input type="text" name="SearchString">
+        <button type="submit" class="btn btn-success" value="Filter">Search</button>
+    </h2>
+</form>
+<div class=" float-right">
+    <h4><b>@Model.Count()</b> records in database</h4>
+</div>
+<div class="row">
+@foreach (var element in Model)
+{
+    <div class="col-md-3 ">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-text text-white bg-info">@element.City</h5>
+                <h3 class="card-text text-danger bg-light">@element.MaxTemp</h3>
+                <h3 class="card-text text-info bg-light">@element.MinTemp</h3>
+                <h3 class="card-text text-white bg-primary">@element.Date</h3>
+            </div>
+
+        </div>
+
+    </div>
+}
+    </div>
+
